@@ -1,5 +1,5 @@
 #include "prey.h"
-#include "evasion_strategy.h"
+#include "../incldue/evasion_strategy.h"
 #include <vector>
 #include <math.h>
 

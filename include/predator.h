@@ -2,7 +2,7 @@
 #define PREDATOR_H_
 
 #include "prey.h"
-#include "movement/pursuit/pursuit_strategy.h"
+#include "pursuit_strategy.h"
 #include <vector>
 
 class Predator {
@@ -22,7 +22,7 @@ public:
     std::vector<double> GetPreyPos();
 
     PursuitStrategy* GetPursuitStrat();
-    void SetPursuitStrat(PursuitStrategy*);
+    void SetPursuitStrat(PursuitStrategy* newStrat);
 
     void Update(double dt); 
 

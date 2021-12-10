@@ -1,7 +1,7 @@
 #ifndef PURSUIT_STRATEGY_H_
 #define PURSUIT_STRATEGY_H_
 
-#include "../../entities/predator.h"
+#include "predator.h"
 
 class PursuitStrategy {
 public:

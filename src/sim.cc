@@ -1,8 +1,8 @@
 #include "sim.h"
-#include "entities/entity.h"
-#include "entities/predator.h"
-#include "entities/prey.h"
+// #include "entities/predator.h"
+// #include "entities/prey.h"
 #include <vector>
+#include <cmath>
 
 Sim::Sim() {
     // Initialize Simulation variables
