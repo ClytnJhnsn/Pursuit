@@ -1,0 +1,5 @@
+TODO:
+- make it compile
+- implement movement strategies
+- implement decision process
+- write data to file and plot it
