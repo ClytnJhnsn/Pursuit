@@ -4,6 +4,7 @@
 #include "../../entities/predator.h"
 
 class PursuitStrategy {
+public:
     virtual ~PursuitStrategy() {};
 
     virtual void Apply(Predator* predator);

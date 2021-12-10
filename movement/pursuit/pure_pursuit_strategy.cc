@@ -11,5 +11,5 @@
             newDir[i] = preyPos[i] - predPos[i];
         }
 
-        predator->SetPos(newDir);
+        predator->SetDir(newDir);
     }

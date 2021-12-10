@@ -4,6 +4,7 @@
 #include "prey.h"
 
 class EvasionStrategy {
+public:
     virtual ~EvasionStrategy() {};
 
     virtual void Apply(Prey* prey);

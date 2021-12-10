@@ -3,7 +3,7 @@
 #include <vector>
 #include <cmath>
 
-virtual void Apply(Prey* prey) {
+void Apply(Prey* prey) {
     // Set direction vector in direction of prey
     std::vector<double> preyPos = prey->GetPos();
     std::vector<double> predPos = prey->GetPredatorPos();
@@ -13,7 +13,5 @@ virtual void Apply(Prey* prey) {
         newDir[i] = preyPos[i] - predPos[i];
     }
 
-    prey->SetPos(newDir);
+    prey->SetDir(newDir);
 }
-
-

@@ -4,7 +4,9 @@
 #include "pursuit_strategy.h"
 
 class PurePursuitStrategy : public PursuitStrategy {
-    ~PurePursuitStrategy();
+public:
+    PurePursuitStrategy() {};
+    ~PurePursuitStrategy() {};
 
     void Apply(Predator* predator);
 };
