@@ -1,22 +1,54 @@
 #include "predator.h"
-#include "pursuit_strategy.h"
+#include "movement/pursuit/pursuit_strategy.h"
 #include <vector>
+#include <math.h>
 
 Predator::Predator() {
-    pos = std::vector<double>(0.0, 0.0, 0.0);
+    for (int i = 0; i <  pos.size(); i++) {
+        pos.push_back(0.0);
+    }
     dir = pos;
     speed = 0;
-    pursuit_strat = new PursuitStrategy();
 }
 
 Predator::~Predator() {
     delete pursuit_strat;
 }
 
-// Probably won't need
-// Predator::Predator(const Predator& otherPredator) {
-//
-// }
+std::vector<double> Predator::GetPos() { 
+    return pos; 
+}
+
+void Predator::SetPos(std::vector<double> newPos) { 
+    pos = newPos;
+}
+
+std::vector<double> Predator::GetDir() { 
+    return dir; 
+}
+
+void Predator::SetDir(std::vector<double> newDir) { 
+    // Normalize first 
+    double norm = sqrt(newDir[0]*newDir[0] + newDir[1]*newDir[1] + newDir[2]*newDir[2]);
+    if (norm != 0) {
+        for (int i = 0; i < 3; i++) {
+            newDir[i] = newDir[i] / norm;
+        }
+    }
+    dir = newDir; 
+}
+
+double Predator::GetSpeed() { 
+    return speed; 
+}
+
+void Predator::SetSpeed(double newSpeed) { 
+    speed = newSpeed; 
+}
+
+std::vector<double> Predator::GetPreyPos() {
+    return preyPos;
+}
 
 PursuitStrategy* Predator::GetPursuitStrat() {
     return pursuit_strat;
@@ -26,14 +58,6 @@ void Predator::SetPursuitStrat(PursuitStrategy* newStrat) {
     pursuit_strat = newStrat;
 }
 
-// Probably won't need
-// Predator::Predator operator=(const Predator& otherPredator) {
-//     pos = otherPredator->GetPos();
-//     dir = otherPredator->GetDir();
-//     speed = otherPredator->GetSpeed();
-//     pursuit_strat = otherPredator->GetMovementStrat();
-// }
-
 void Predator::Update(double dt) {
     if(pursuit_strat) {
         pursuit_strat->Apply(this);
@@ -42,5 +66,4 @@ void Predator::Update(double dt) {
     for (int i = 0; i < 3; i++) {
         pos[i] += speed*dir[i];
     }
-
 }
