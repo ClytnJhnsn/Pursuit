@@ -1,4 +1,4 @@
-#include "include/sim.h"
+#include "sim.h"
 #include <vector>
 #include <cmath>
 

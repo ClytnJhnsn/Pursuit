@@ -1,8 +1,8 @@
 #ifndef SIM_H_
 #define SIM_H_
 
-#include "../include/predator.h"
-#include "../include/prey.h"
+#include "include/predator.h"
+#include "include/prey.h"
 #include <vector>
 
 class Sim {
