@@ -1,6 +1,4 @@
-#include "sim.h"
-// #include "entities/predator.h"
-// #include "entities/prey.h"
+#include "include/sim.h"
 #include <vector>
 #include <cmath>
 
@@ -30,7 +28,7 @@ void Sim::Update() {
 bool Sim::Caught(double range) {
     std::vector<double> preyPos, predPos, diff;
     preyPos = prey->GetPos();
-    predPos = pred->GetPos();
+    predPos = predator->GetPos();
 
     for (int i = 0; i < 3; i++) {
         diff[i] = preyPos[i] - predPos[i];

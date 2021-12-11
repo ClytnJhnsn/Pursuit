@@ -1,16 +1,15 @@
 #ifndef SIM_H_
 #define SIM_H_
 
-#include "entities/predator.h"
-#include "entities/prey.h"
+#include "../include/predator.h"
+#include "../include/prey.h"
 #include <vector>
 
 class Sim {
-    // Have yet to figure out how we're gonna create Simulations 
-    // (What parameters do we take, what do we set to default>)
+public:
     Sim();
 
-    ~Sim()
+    ~Sim();
 
     bool Caught(double range);
 

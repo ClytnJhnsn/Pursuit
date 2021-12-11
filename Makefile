@@ -20,6 +20,7 @@ $(EXEFILE): $(OBJFILES)
 
 # Object files
 $(BUILD_DIR)/%.o: %.cc 
+	mkdir -p $(dir $@)
 	$(call make-depend-cxx,$<,$@,$(subst .o,.d,$@))
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 

@@ -1,5 +1,6 @@
-#include "prey.h"
-#include "../incldue/evasion_strategy.h"
+#include "../include/prey.h"
+#include "../include/predator.h"
+// #include "../incldue/evasion_strategy.h"
 #include <vector>
 #include <math.h>
 
@@ -13,6 +14,7 @@ Prey::Prey() {
 
 Prey::~Prey() {
     delete evasion_strat;
+    delete predator;
 }
 
 std::vector<double> Prey::GetPos() { 
@@ -21,6 +23,10 @@ std::vector<double> Prey::GetPos() {
 
 void Prey::SetPos(std::vector<double> newPos) { 
     pos = newPos;
+}
+
+std::vector<double> Prey::GetOtherPos() {
+    return predPos;
 }
 
 std::vector<double> Prey::GetDir() { 
@@ -44,10 +50,6 @@ double Prey::GetSpeed() {
 
 void Prey::SetSpeed(double newSpeed) { 
     speed = newSpeed; 
-}
-
-std::vector<double> Prey::GetPredatorPos() {
-    return predPos;
 }
 
 EvasionStrategy* Prey::GetEvasionStrat() {

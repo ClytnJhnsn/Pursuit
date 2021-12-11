@@ -1,11 +1,14 @@
 #ifndef PREDATOR_H_
 #define PREDATOR_H_
 
-#include "prey.h"
+// #include "prey.h"
+#include "entity.h"
 #include "pursuit_strategy.h"
 #include <vector>
 
-class Predator {
+class Prey;
+
+class Predator : public Entity {
 public:
     Predator();
     ~Predator();
@@ -13,13 +16,13 @@ public:
     std::vector<double> GetPos();
     void SetPos(std::vector<double> newPos);
 
+    std::vector<double> GetOtherPos();
+
     std::vector<double> GetDir();
     void SetDir(std::vector<double> newDir);
 
     double GetSpeed();
     void SetSpeed(double newSpeed);
-
-    std::vector<double> GetPreyPos();
 
     PursuitStrategy* GetPursuitStrat();
     void SetPursuitStrat(PursuitStrategy* newStrat);

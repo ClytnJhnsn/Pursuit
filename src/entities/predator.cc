@@ -1,4 +1,5 @@
-#include "predator.h"
+#include "../include/predator.h"
+#include "../include/prey.h"
 // #include "../include/pursuit_strategy.h"
 #include <vector>
 #include <math.h>
@@ -13,6 +14,7 @@ Predator::Predator() {
 
 Predator::~Predator() {
     delete pursuit_strat;
+    delete prey;
 }
 
 std::vector<double> Predator::GetPos() { 
@@ -21,6 +23,10 @@ std::vector<double> Predator::GetPos() {
 
 void Predator::SetPos(std::vector<double> newPos) { 
     pos = newPos;
+}
+
+std::vector<double> Predator::GetOtherPos() {
+    return preyPos;
 }
 
 std::vector<double> Predator::GetDir() { 
@@ -44,10 +50,6 @@ double Predator::GetSpeed() {
 
 void Predator::SetSpeed(double newSpeed) { 
     speed = newSpeed; 
-}
-
-std::vector<double> Predator::GetPreyPos() {
-    return preyPos;
 }
 
 PursuitStrategy* Predator::GetPursuitStrat() {

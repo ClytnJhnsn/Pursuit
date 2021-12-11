@@ -1,13 +1,13 @@
 #ifndef EVASION_STRATEGY_H_
 #define EVASION_STRATEGY_H_
 
-#include "prey.h"
+#include "entity.h"
 
 class EvasionStrategy {
 public:
-    virtual ~EvasionStrategy() {};
+    // virtual ~EvasionStrategy();
 
-    virtual void Apply(Prey* prey);
+    virtual void Apply(Entity* prey) = 0;
 };
 
 #endif
