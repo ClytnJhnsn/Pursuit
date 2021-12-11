@@ -2,6 +2,11 @@
 #include "../../include/entity.h"
 #include <vector>
 #include <cmath>
+#include <iostream>
+
+void PurePursuit::SanityCheck() {
+    std::cout << "you're fucking crazy" << std::endl;
+}
 
 void PurePursuit::Apply(Entity* predator) {
     // Set direction vector in direction of prey

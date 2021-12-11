@@ -1,15 +1,23 @@
 #include "../include/prey.h"
 #include "../include/predator.h"
-// #include "../incldue/evasion_strategy.h"
+#include "../include/evasion_strategy.h"
+#include "../include/pure_evasion.h"
 #include <vector>
 #include <math.h>
+#include <iostream>
 
 Prey::Prey() {
-    for (int i = 0; i <  pos.size(); i++) {
+    for (int i = 0; i < 3; i++) {
         pos.push_back(0.0);
-    }    
+    }
+    std::vector<double> newDir = {0.0, 1.0, 0.0};
+    SetDir(newDir);
     dir = pos;
     speed = 0;
+
+    EvasionStrategy* pure = new PureEvasion;
+    SetEvasionStrat(pure);
+    delete pure;
 }
 
 Prey::~Prey() {
@@ -76,4 +84,8 @@ void Prey::Update(double dt) {
     for (int i = 0; i < 3; i++) {
         pos[i] += speed*dir[i];
     }
+    // std::cout << "preydate" << std::endl;
+    // std::vector<int> poop;
+    // int stopper = poop[10];
+
 }

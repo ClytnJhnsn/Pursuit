@@ -7,6 +7,7 @@ class PursuitStrategy {
 public:
     // virtual ~PursuitStrategy() {};
 
+    virtual void SanityCheck() = 0;
     virtual void Apply(Entity* predator) = 0;
 };
 

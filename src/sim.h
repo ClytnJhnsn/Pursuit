@@ -1,15 +1,23 @@
 #ifndef SIM_H_
 #define SIM_H_
 
-#include "include/predator.h"
-#include "include/prey.h"
+// #include "include/predator.h"
+// #include "include/prey.h"
 #include <vector>
+
+class Predator;
+class Prey;
 
 class Sim {
 public:
     Sim();
 
     ~Sim();
+
+    std::vector<double> GetPredatorPos();
+    std::vector<double> GetPreyPos();
+
+    double GetDist();
 
     bool Caught(double range);
 
@@ -19,7 +27,7 @@ private:
     double time;
     double step;
     double range;
-    // For extension, these could be turned into an array of entities
+
     Predator* predator;
     Prey* prey;
 };

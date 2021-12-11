@@ -9,6 +9,8 @@ public:
     PurePursuit() {};
     // ~PurePursuit();
 
+    void SanityCheck();
+
     void Apply(Entity* predator);
 };
 
