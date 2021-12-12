@@ -6,7 +6,7 @@
 #include "pursuit_strategy.h"
 #include <vector>
 
-class Prey;
+class Entity;
 
 class Predator : public Entity {
 public:
@@ -17,6 +17,9 @@ public:
     void SetPos(std::vector<double> newPos);
 
     std::vector<double> GetOtherPos();
+
+    // Entity* GetOther();
+    void SetOther(Entity* other);
 
     std::vector<double> GetDir();
     void SetDir(std::vector<double> newDir);
@@ -35,7 +38,7 @@ private:
     double speed;
     PursuitStrategy* pursuit_strat;
 
-    Prey* prey;
+    Entity* prey;
     std::vector<double> preyPos;
 
 };

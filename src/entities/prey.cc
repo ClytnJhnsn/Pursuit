@@ -16,7 +16,6 @@ Prey::Prey() {
 
     EvasionStrategy* pure = new PureEvasion;
     SetEvasionStrat(pure);
-    delete pure;
 }
 
 Prey::~Prey() {
@@ -33,7 +32,15 @@ void Prey::SetPos(std::vector<double> newPos) {
 }
 
 std::vector<double> Prey::GetOtherPos() {
-    return predPos;
+    return predator->GetPos();
+}
+
+// Entity* Prey::GetOther() {
+//     return predator;
+// }
+
+void Prey::SetOther(Entity* other) {
+    predator = other;
 }
 
 std::vector<double> Prey::GetDir() { 

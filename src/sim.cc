@@ -14,8 +14,13 @@ Sim::Sim() {
     // Initialize entities
     predator = new Predator();
     prey = new Prey();
+
+    predator->SetOther(prey);
+    prey->SetOther(predator);
+
     predator->SetSpeed(2.5);
     prey->SetSpeed(1.0);
+
     std::vector<double> util;
     util = {0.0, 10.0, 0.0};
     prey->SetPos(util);

@@ -12,6 +12,9 @@ public:
 
     virtual std::vector<double> GetOtherPos() = 0;
 
+    // virtual Entity* GetOther() = 0;
+    virtual void SetOther(Entity* other) = 0;
+
     virtual std::vector<double> GetDir() = 0;
     virtual void SetDir(std::vector<double> newDir) = 0;
 

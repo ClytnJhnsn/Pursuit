@@ -14,9 +14,8 @@ Predator::Predator() {
     SetDir(newDir);
     speed = 0;
 
-    PursuitStrategy* pure = new PurePursuit;
+    PursuitStrategy* pure = new PurePursuit();
     SetPursuitStrat(pure);
-    delete pure;
 }
 
 Predator::~Predator() {
@@ -33,7 +32,15 @@ void Predator::SetPos(std::vector<double> newPos) {
 }
 
 std::vector<double> Predator::GetOtherPos() {
-    return preyPos;
+    return prey->GetPos();
+}
+
+// Entity* Predator::GetOther() {
+//     return prey;
+// }
+
+void Predator::SetOther(Entity* other) {
+    prey = other;
 }
 
 std::vector<double> Predator::GetDir() { 

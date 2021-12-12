@@ -18,6 +18,9 @@ public:
     
     std::vector<double> GetOtherPos();
 
+    // Entity* GetOther();
+    void SetOther(Entity* other);
+
     std::vector<double> GetDir();
     void SetDir(std::vector<double> newDir);
 
@@ -35,7 +38,7 @@ private:
     double speed;
     EvasionStrategy* evasion_strat;
 
-    Predator* predator;
+    Entity* predator;
     std::vector<double> predPos;
 
 };
