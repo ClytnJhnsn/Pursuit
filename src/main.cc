@@ -3,24 +3,29 @@
 #include "include/predator.h"
 #include "include/prey.h"
 #include <iostream>
+#define NUM_RUNS 15
 
 int main() {
-    Sim* sim = new Sim();
-    sim->Print();
 
-    std::cout << sim->GetDist() << std::endl;
-    for (int i = 0; i < 100; i++) {
-        sim->Update();
-        std::cout << sim->GetDist() << std::endl;
-        if (sim->Caught(2.0)) { 
-            i = 100; 
-            std::cout << "********" << std::endl;
-            std::cout << "Caught!" << std::endl;
-            std::cout << "********" << std::endl;
+
+    int num_iters[NUM_RUNS];
+
+    for (int i = 0; i < NUM_RUNS; i++) {
+        num_iters[i] = 0;
+
+        Sim* sim = new Sim();
+        while(!sim->Caught(2.0)) {
+            num_iters[i] += 1;
+            sim->Update();
         }
-        // if (i==50) {
-        //     std::vector<int> poop;
-        //     int stopper = poop[10];
+        // std::cout << sim->GetDist() << std::endl;
+        // if (sim->Caught(2.0)) { 
+        //     i = 100; 
+            // std::cout << "********" << std::endl;
+            // std::cout << "Caught!" << std::endl;
+            // std::cout << "********" << std::endl;
         // }
+
+        std::cout << "Run " << i << " caught in " << num_iters[i] << " iterations" << std::endl;
     }
 }
