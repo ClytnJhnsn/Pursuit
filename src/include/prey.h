@@ -34,6 +34,8 @@ public:
 
     void Print();
 
+    void RandomizeDir();
+
 private:
     std::vector<double> pos; 
     std::vector<double> dir;

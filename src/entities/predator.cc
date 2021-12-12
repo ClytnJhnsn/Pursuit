@@ -79,8 +79,7 @@ void Predator::Update(double dt) {
     pursuit_strat->Apply(this);
 
     for (int i = 0; i < 3; i++) {
-        double val = speed*dir[i]*dt;
-        pos[i] += val;
+        pos[i] += speed*dir[i]*dt;;
     }
 }
 

@@ -6,14 +6,15 @@
 #include <math.h>
 #include <iostream>
 #include <iomanip>
+#include <random>
+#include <chrono> //For system_clock
 
 
 Prey::Prey() {
     for (int i = 0; i < 3; i++) {
         pos.push_back(0.0);
     }
-    std::vector<double> newDir = {0.0, 1.0, 0.0};
-    SetDir(newDir);
+    RandomizeDir();
     speed = 0;
 
     EvasionStrategy* pure = new PureEvasion;
@@ -107,4 +108,20 @@ void Prey::Print() {
             std::cout << ", ";
         }
     }
+}
+
+void Prey::RandomizeDir() {
+    std::vector<double> vec;
+    double lower_bound = -1;
+    double upper_bound = 1;
+
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::uniform_real_distribution<double> unif(lower_bound,upper_bound);
+    std::default_random_engine re(seed);
+
+    for (int i = 0; i < 3; i++) {
+        vec.push_back(unif(re));
+    }
+
+    SetDir(vec);
 }

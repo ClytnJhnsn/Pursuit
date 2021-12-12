@@ -74,8 +74,8 @@ void Sim::Print() {
 
 std::vector<double> Sim::RandomPos() {
     std::vector<double> vec;
-    double lower_bound = -50;
-    double upper_bound = 50;
+    double lower_bound = -1000;
+    double upper_bound = 1000;
 
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::uniform_real_distribution<double> unif(lower_bound,upper_bound);
@@ -87,5 +87,9 @@ std::vector<double> Sim::RandomPos() {
     }
 
     return vec;
+}
+
+void Sim::SetEvasionStrat(EvasionStrategy* evasion_strat) {
+    prey->SetEvasionStrat(evasion_strat);
 }
 
