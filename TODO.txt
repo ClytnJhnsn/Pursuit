@@ -1,5 +1,19 @@
 TODO:
-- make it compile
-- implement movement strategies
-- implement decision process
-- write data to file and plot it
+    implement the rest of the movement strategies
+    create a better system for interfacing with a simulation
+    write data to file and plot it
+    implement decision proccess
+
+MOVEMENT STRATEGIES:
+    Look at the write-up, implement mentioned pursuit strategies.
+    Implement some simple evasion strategies. Maybe evasion starts 
+    
+
+SIMULATION INTERFACE:
+
+
+HANDLING DATA:
+    later;
+
+DECISION PROCESS:
+    later;
