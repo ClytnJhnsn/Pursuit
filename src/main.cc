@@ -9,11 +9,15 @@ int main() {
 
 
     int num_iters[NUM_RUNS];
+    double starting_distances[NUM_RUNS];
 
     for (int i = 0; i < NUM_RUNS; i++) {
-        num_iters[i] = 0;
-
         Sim* sim = new Sim();
+
+        num_iters[i] = 0;
+        starting_distances[i] = sim->GetDist();
+
+        
         while(!sim->Caught(2.0)) {
             num_iters[i] += 1;
             sim->Update();
@@ -26,6 +30,8 @@ int main() {
             // std::cout << "********" << std::endl;
         // }
 
-        std::cout << "Run " << i << " caught in " << num_iters[i] << " iterations" << std::endl;
+        std::cout << "Run " << i << "\tcaught in " << num_iters[i] << "\titers " 
+        <<  starting_distances[i] << "\tdist at start " << (starting_distances[i]/num_iters[i]) 
+        << "\tdist/iters" <<std::endl;
     }
 }
