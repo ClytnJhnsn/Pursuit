@@ -12,7 +12,6 @@ Predator::Predator() {
     }
     std::vector<double> newDir = {0.0, 1.0, 0.0};
     SetDir(newDir);
-    dir = pos;
     speed = 0;
 
     PursuitStrategy* pure = new PurePursuit;
@@ -69,13 +68,10 @@ void Predator::SetPursuitStrat(PursuitStrategy* newStrat) {
 
 void Predator::Update(double dt) {
     if(pursuit_strat) {
-        std::vector<int> poop;
-        int stopper = poop[10];
         pursuit_strat->Apply(this);
     }
 
     for (int i = 0; i < 3; i++) {
-        pos[i] += speed*dir[i];
+        pos[i] += speed*dir[i]*dt;
     }
-    // std::cout << "preddate" << std::endl;
 }

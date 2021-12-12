@@ -12,7 +12,6 @@ Prey::Prey() {
     }
     std::vector<double> newDir = {0.0, 1.0, 0.0};
     SetDir(newDir);
-    dir = pos;
     speed = 0;
 
     EvasionStrategy* pure = new PureEvasion;
@@ -82,7 +81,7 @@ void Prey::Update(double dt) {
     }
 
     for (int i = 0; i < 3; i++) {
-        pos[i] += speed*dir[i];
+        pos[i] += speed*dir[i]*dt;
     }
     // std::cout << "preydate" << std::endl;
     // std::vector<int> poop;

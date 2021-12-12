@@ -1,21 +1,20 @@
 CXX = g++
 CXXFLAGS = -std=c++11 -g
 ROOT_DIR := $(shell git rev-parse --show-toplevel)
-IDIR = include
-
+INCLUDE_DIR = include
 BUILD_DIR = build
 INCLUDE = -I. -I/include
 SOURCES = $(shell find src -name '*.cc')
 OBJFILES = $(notdir $(SOURCES:.cc=.o))
 
-EXEFILE = $(BUILD_DIR)/sim-app
+APP = $(BUILD_DIR)/sim-app
 OBJFILES = $(addprefix $(BUILD_DIR)/, $(SOURCES:.cc=.o))
 
 
-all: $(BUILD_DIR) $(EXEFILE) 
+all: $(BUILD_DIR) $(APP) 
 
 # Application
-$(EXEFILE): $(OBJFILES)
+$(APP): $(OBJFILES)
 	$(CXX) $(CXXFLAGS) $(OBJFILES) -o $@
 
 # Object files

@@ -6,8 +6,7 @@
 
 class PurePursuit : public PursuitStrategy {
 public:
-    PurePursuit() {};
-    // ~PurePursuit();
+    PurePursuit();
 
     void SanityCheck();
 

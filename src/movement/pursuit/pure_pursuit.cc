@@ -4,6 +4,9 @@
 #include <cmath>
 #include <iostream>
 
+PurePursuit::PurePursuit() {
+}
+
 void PurePursuit::SanityCheck() {
     std::cout << "you're fucking crazy" << std::endl;
 }

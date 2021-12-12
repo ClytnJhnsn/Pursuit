@@ -53,21 +53,10 @@ void Sim::Update() {
         // regarding initial positions to make these updates "simultaneous" 
         predator->Update(0.5);
         prey->Update(0.5);
-        // std::cout << "simdate" << std::endl;
         time += step;
     }
 }
 
 bool Sim::Caught(double range) {
-    // std::vector<double> preyPos, predPos, diff;
-    // diff = {0.0, 0.0, 0.0};
-    // preyPos = prey->GetPos();
-    // predPos = predator->GetPos();
-
-    // for (int i = 0; i < 3; i++) {
-    //     diff[i] = preyPos[i] - predPos[i];
-    // }
-
-    // return sqrt(diff[0]*diff[0] + diff[1]*diff[1] + diff[2]*diff[2]); 
     return (GetDist() <= range);
 }
