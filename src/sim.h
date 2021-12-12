@@ -23,6 +23,10 @@ public:
 
     void Update();
 
+    void Print();
+
+    std::vector<double> RandomPos();
+
 private:
     double time;
     double step;

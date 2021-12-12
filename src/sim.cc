@@ -4,6 +4,8 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include <random>
+#include <chrono> //For system_clock
 
 Sim::Sim() {
     // Initialize Simulation variables
@@ -21,9 +23,8 @@ Sim::Sim() {
     predator->SetSpeed(2.5);
     prey->SetSpeed(1.0);
 
-    std::vector<double> util;
-    util = {0.0, 10.0, 0.0};
-    prey->SetPos(util);
+    prey->SetPos(RandomPos());
+    predator->SetPos(RandomPos());
 }
 
 Sim::~Sim() {
@@ -65,3 +66,26 @@ void Sim::Update() {
 bool Sim::Caught(double range) {
     return (GetDist() <= range);
 }
+
+void Sim::Print() {
+    prey->Print();
+    predator->Print();
+}
+
+std::vector<double> Sim::RandomPos() {
+    std::vector<double> vec;
+    double lower_bound = -50;
+    double upper_bound = 50;
+
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::uniform_real_distribution<double> unif(lower_bound,upper_bound);
+    std::default_random_engine re(seed);
+
+
+    for (int i = 0; i < 3; i++) {
+        vec.push_back(unif(re));
+    }
+
+    return vec;
+}
+

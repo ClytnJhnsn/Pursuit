@@ -5,6 +5,8 @@
 #include <vector>
 #include <math.h>
 #include <iostream>
+#include <iomanip>
+
 
 Predator::Predator() {
     for (int i = 0; i < 3; i++) {
@@ -35,9 +37,9 @@ std::vector<double> Predator::GetOtherPos() {
     return prey->GetPos();
 }
 
-// Entity* Predator::GetOther() {
-//     return prey;
-// }
+Entity* Predator::GetOther() {
+    return prey;
+}
 
 void Predator::SetOther(Entity* other) {
     prey = other;
@@ -74,11 +76,35 @@ void Predator::SetPursuitStrat(PursuitStrategy* newStrat) {
 }
 
 void Predator::Update(double dt) {
-    if(pursuit_strat) {
-        pursuit_strat->Apply(this);
-    }
+    pursuit_strat->Apply(this);
 
     for (int i = 0; i < 3; i++) {
-        pos[i] += speed*dir[i]*dt;
+        double val = speed*dir[i]*dt;
+        pos[i] += val;
+    }
+}
+
+void Predator::Print() {
+    std::cout << std::fixed;
+    std::cout << std::setprecision(2);
+    
+    std::cout << "Predator:\n--> Pos: [";
+    for (auto i = pos.begin(); i != pos.end(); ++i) {
+        std::cout << *i ;
+        if (std::next(i) == (pos.end())) {
+            std::cout << "]" << std::endl;
+        } else {
+            std::cout << ", ";
+        }
+    }
+
+    std::cout << "--> Dir: [";
+    for (auto i = dir.begin(); i != dir.end(); ++i) {
+        std::cout << *i ;
+        if (std::next(i) == (dir.end())) {
+            std::cout << "]" << std::endl;
+        } else {
+            std::cout << ", ";
+        }
     }
 }

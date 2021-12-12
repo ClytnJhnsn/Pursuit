@@ -12,7 +12,7 @@ public:
 
     virtual std::vector<double> GetOtherPos() = 0;
 
-    // virtual Entity* GetOther() = 0;
+    virtual Entity* GetOther() = 0;
     virtual void SetOther(Entity* other) = 0;
 
     virtual std::vector<double> GetDir() = 0;
@@ -22,6 +22,8 @@ public:
     virtual void SetSpeed(double newSpeed) = 0;
 
     virtual void Update(double dt) = 0; 
+
+    virtual void Print() = 0;
 
 // Entities should contain the following private memebers:
     // std::vector<double> pos; 

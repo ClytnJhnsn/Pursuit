@@ -5,6 +5,8 @@
 #include <vector>
 #include <math.h>
 #include <iostream>
+#include <iomanip>
+
 
 Prey::Prey() {
     for (int i = 0; i < 3; i++) {
@@ -35,9 +37,9 @@ std::vector<double> Prey::GetOtherPos() {
     return predator->GetPos();
 }
 
-// Entity* Prey::GetOther() {
-//     return predator;
-// }
+Entity* Prey::GetOther() {
+    return predator;
+}
 
 void Prey::SetOther(Entity* other) {
     predator = other;
@@ -74,24 +76,35 @@ void Prey::SetEvasionStrat(EvasionStrategy* newStrat) {
     evasion_strat = newStrat;
 }
 
-// Probably won't need
-// Prey::Prey operator=(const Prey& otherPrey) {
-//     pos = otherPrey->GetPos();
-//     dir = otherPrey->GetDir();
-//     speed = otherPrey->GetSpeed();
-//     evasion_strat = otherPrey->GetMovementStrat();
-// }
-
 void Prey::Update(double dt) {
-    if(evasion_strat) {
-        evasion_strat->Apply(this);
-    }
+    evasion_strat->Apply(this);
 
     for (int i = 0; i < 3; i++) {
         pos[i] += speed*dir[i]*dt;
     }
-    // std::cout << "preydate" << std::endl;
-    // std::vector<int> poop;
-    // int stopper = poop[10];
+}
 
+void Prey::Print() {
+    std::cout << std::fixed;
+    std::cout << std::setprecision(2);
+    
+    std::cout << "Prey:\n--> Pos: [";
+    for (auto i = pos.begin(); i != pos.end(); ++i) {
+        std::cout << *i ;
+        if (std::next(i) == (pos.end())) {
+            std::cout << "]" << std::endl;
+        } else {
+            std::cout << ", ";
+        }
+    }
+
+    std::cout << "--> Dir: [";
+    for (auto i = dir.begin(); i != dir.end(); ++i) {
+        std::cout << *i ;
+        if (std::next(i) == (dir.end())) {
+            std::cout << "]" << std::endl;
+        } else {
+            std::cout << ", ";
+        }
+    }
 }
