@@ -9,10 +9,10 @@
 
 
 Predator::Predator() {
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 2; i++) {
         pos.push_back(0.0);
     }
-    std::vector<double> newDir = {0.0, 1.0, 0.0};
+    std::vector<double> newDir = {0.0, 1.0};
     SetDir(newDir);
     speed = 0;
 
@@ -50,9 +50,9 @@ std::vector<double> Predator::GetDir() {
 }
 
 void Predator::SetDir(std::vector<double> newDir) { 
-    double norm = sqrt(newDir[0]*newDir[0] + newDir[1]*newDir[1] + newDir[2]*newDir[2]);
+    double norm = sqrt(newDir[0]*newDir[0] + newDir[1]*newDir[1]);
     if (norm != 0) {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
             newDir[i] = newDir[i] / norm;
         }
     }
@@ -78,7 +78,7 @@ void Predator::SetPursuitStrat(PursuitStrategy* newStrat) {
 void Predator::Update(double dt) {
     pursuit_strat->Apply(this);
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 2; i++) {
         pos[i] += speed*dir[i]*dt;;
     }
 }

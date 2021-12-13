@@ -42,7 +42,7 @@ std::vector<double> Sim::GetPreyPos() {
 
 double Sim::GetDist() {
     std::vector<double> preyPos, predPos, diff;
-    diff = {0.0, 0.0, 0.0};
+    diff = {0.0, 0.0};
     preyPos = GetPreyPos();
     predPos = GetPredatorPos();
 
@@ -50,7 +50,7 @@ double Sim::GetDist() {
         diff[i] = preyPos[i] - predPos[i];
     }
 
-    return sqrt(diff[0]*diff[0] + diff[1]*diff[1] + diff[2]*diff[2]); 
+    return sqrt(diff[0]*diff[0] + diff[1]*diff[1]); 
 }
 
 void Sim::Update() {
@@ -82,7 +82,7 @@ std::vector<double> Sim::RandomPos() {
     std::default_random_engine re(seed);
 
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 2; i++) {
         vec.push_back(unif(re));
     }
 

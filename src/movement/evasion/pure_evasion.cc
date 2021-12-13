@@ -8,8 +8,8 @@ void PureEvasion::Apply(Entity* prey) {
     std::vector<double> preyPos = prey->GetPos();
     std::vector<double> predPos = prey->GetOtherPos();
 
-    std::vector<double> newDir = {0.0, 0.0, 0.0};
-    for (int i = 0; i < 3; i++) {
+    std::vector<double> newDir = {0.0, 0.0};
+    for (int i = 0; i < 2; i++) {
         newDir[i] = preyPos[i] - predPos[i];
     }
 

@@ -11,7 +11,7 @@
 
 
 Prey::Prey() {
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 2; i++) {
         pos.push_back(0.0);
     }
     RandomizeDir();
@@ -52,9 +52,9 @@ std::vector<double> Prey::GetDir() {
 
 void Prey::SetDir(std::vector<double> newDir) { 
     // Normalize first 
-    double norm = sqrt(newDir[0]*newDir[0] + newDir[1]*newDir[1] + newDir[2]*newDir[2]);
+    double norm = sqrt(newDir[0]*newDir[0] + newDir[1]*newDir[1]);
     if (norm != 0) {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
             newDir[i] = newDir[i] / norm;
         }
     }
@@ -80,7 +80,7 @@ void Prey::SetEvasionStrat(EvasionStrategy* newStrat) {
 void Prey::Update(double dt) {
     evasion_strat->Apply(this);
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 2; i++) {
         pos[i] += speed*dir[i]*dt;
     }
 }
@@ -119,7 +119,7 @@ void Prey::RandomizeDir() {
     std::uniform_real_distribution<double> unif(lower_bound,upper_bound);
     std::default_random_engine re(seed);
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 2; i++) {
         vec.push_back(unif(re));
     }
 

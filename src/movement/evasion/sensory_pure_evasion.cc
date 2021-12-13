@@ -10,8 +10,8 @@ void SensoryPureEvasion::Apply(Entity* prey) {
     std::vector<double> predPos = prey->GetOtherPos();
 
     if (GetDist(preyPos, predPos) < SENSORY_RANGE) {
-        std::vector<double> newDir = {0.0, 0.0, 0.0};
-        for (int i = 0; i < 3; i++) {
+        std::vector<double> newDir = {0.0, 0.0};
+        for (int i = 0; i < 2; i++) {
             newDir[i] = preyPos[i] - predPos[i];
         }
         prey->SetDir(newDir);
@@ -19,11 +19,11 @@ void SensoryPureEvasion::Apply(Entity* prey) {
 }
 
 double SensoryPureEvasion::GetDist(std::vector<double> preyPos, std::vector<double> predPos) {
-    std::vector<double> diff = {0.0, 0.0, 0.0};
+    std::vector<double> diff = {0.0, 0.0};
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 2; i++) {
         diff[i] = preyPos[i] - predPos[i];
     }
 
-    return sqrt(diff[0]*diff[0] + diff[1]*diff[1] + diff[2]*diff[2]); 
+    return sqrt(diff[0]*diff[0] + diff[1]*diff[1]); 
 }

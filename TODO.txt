@@ -21,9 +21,12 @@ SIMULATION INTERFACE:
     like initial entity positions.
 
 HANDLING DATA:
-    Doesn't necessarily need to be too complicated. Could maybe 
+    Below is from before. Now, I'm pretty sure we can just write
+    the data to a text file with commas in it to make a CSV. Would
+    probably make plotting and working with data a lot easier.
+    (Doesn't necessarily need to be too complicated. Could maybe 
     even be done by printing to the command line so that we can 
-    copy that data and paste elsewhere (like excel). 
+    copy that data and paste elsewhere (like excel).) 
 
 DECISION PROCESS:
     Not yet sure what we're gonna do here.
