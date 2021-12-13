@@ -1,19 +1,29 @@
 TODO:
-    implement the rest of the movement strategies
-    create a better system for interfacing with a simulation
-    write data to file and plot it
-    implement decision proccess
+    - implement the rest of the movement strategies
+    - create a better system for interfacing with a simulation
+    - figure out how to handle the data
+    - implement decision proccess
 
 MOVEMENT STRATEGIES:
     Look at the write-up, implement mentioned pursuit strategies.
     Implement some simple evasion strategies. Maybe evasion starts 
-    
+    only when predator gets within a certain range. Also, we can 
+    simulate evasiveness by making prey change direction quickly
+    when predator gets close (for this to be useful, tho, we might
+    have to try to simulate agility, meaning making changing 
+    direction costly).
 
 SIMULATION INTERFACE:
-
+    Could make a class for this, could also be done in main.cc.
+    What we need is a way to change the certain things about each
+    instance of a simulation. Sim class probably needs to have an 
+    overloaded constructor with input parameters to specify things 
+    like initial entity positions.
 
 HANDLING DATA:
-    later;
+    Doesn't necessarily need to be too complicated. Could maybe 
+    even be done by printing to the command line so that we can 
+    copy that data and paste elsewhere (like excel). 
 
 DECISION PROCESS:
-    later;
+    Not yet sure what we're gonna do here.
