@@ -18,7 +18,7 @@ public:
     
     std::vector<double> GetOtherPos();
 
-    // Entity* GetOther();
+    Entity* GetOther();
     void SetOther(Entity* other);
 
     std::vector<double> GetDir();
@@ -31,6 +31,10 @@ public:
     void SetEvasionStrat(EvasionStrategy* evasion_strat);
 
     void Update(double dt); 
+
+    void Print();
+
+    void RandomizeDir();
 
 private:
     std::vector<double> pos; 

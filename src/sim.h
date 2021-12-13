@@ -4,6 +4,8 @@
 // #include "include/predator.h"
 // #include "include/prey.h"
 #include <vector>
+#include "include/evasion_strategy.h"
+
 
 class Predator;
 class Prey;
@@ -22,6 +24,12 @@ public:
     bool Caught(double range);
 
     void Update();
+
+    void Print();
+
+    std::vector<double> RandomPos();
+
+    void SetEvasionStrat(EvasionStrategy* evasion_strat);
 
 private:
     double time;
