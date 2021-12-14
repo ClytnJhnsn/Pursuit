@@ -13,16 +13,24 @@ std::vector<double> DeviatedPursuit::Rotate(std::vector<double> vec, double a) {
     return newVec;
 }
 
-
 void DeviatedPursuit::Apply(Entity* predator) {
     // Offset direction vector to prey by a
-    std::vector<double> predPos = predator->GetPos();
-    std::vector<double> preyPos = predator->GetOtherPos();
-    std::vector<double> newDir = {0.0, 0.0};
+    std::vector<double> predPos, preyPos, base, newDir, preyDir;
+    predPos = predator->GetPos();
+    preyPos = predator->GetOtherPos();
+    base = {0.0, 0.0};
     for (int i = 0; i < 2; i++) {
-        newDir[i] = preyPos[i] - predPos[i];
+        base[i] = preyPos[i] - predPos[i];
     }
-    newDir = Rotate(newDir, a);
+
+    // Identify the correct direction of rotation
+    preyDir = predator->GetOther()->GetDir();
+    int rotSign = 1;
+    // This represents the z component of (base) X (preyDir) if we map them to xy-plane in 3d space
+    double z = base[0]*preyDir[1] - base[1]*preyDir[0];
+    if (z < 0) { rotSign = -1; }
+
+    newDir = Rotate(base, a);
     predator->SetDir(newDir);
 }
 

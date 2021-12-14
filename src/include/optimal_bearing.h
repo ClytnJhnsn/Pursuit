@@ -9,6 +9,8 @@ class OptimalBearing : public PursuitStrategy {
 public:
     OptimalBearing();
 
+    ~OptimalBearing();
+
     double GetAngle(std::vector<double> a, std::vector<double> b);
 
     void Apply(Entity* predator);

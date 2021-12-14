@@ -9,7 +9,7 @@ public:
     ProportionalNavigation(double initA);
 
     std::vector<double> Rotate(std::vector<double> vec, double a);
-
+    
     double GetAngle(std::vector<double> a, std::vector<double> b);
 
     void Apply(Entity* predator);

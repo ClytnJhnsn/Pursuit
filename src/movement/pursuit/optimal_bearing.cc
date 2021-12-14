@@ -7,11 +7,17 @@
 
 OptimalBearing::OptimalBearing() {}
 
+OptimalBearing::~OptimalBearing() {
+    delete dev;
+}
+
 double OptimalBearing::GetAngle(std::vector<double> a, std::vector<double> b) {
     double dotProd = a[0]*b[0] + a[1]*b[1];
     double aNorm = sqrt(a[0]*a[0] + a[1]*a[1]);
     double bNorm = sqrt(b[0]*b[0] + b[1]*b[1]);
-    return acos(dotProd / (aNorm * bNorm));
+    int crossSign = 1;
+    if (a[0]*b[1] - a[1]*b[0] < 0) { crossSign = -1; }
+    return crossSign * acos(dotProd / (aNorm * bNorm));
 }
 
 void OptimalBearing::Apply(Entity* predator) {
