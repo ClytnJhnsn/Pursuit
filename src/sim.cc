@@ -53,6 +53,13 @@ double Sim::GetDist() {
     return sqrt(diff[0]*diff[0] + diff[1]*diff[1]); 
 }
 
+double Sim::GetPredDistanceTraveled() {
+    return predator->GetDistanceTraveled();
+}
+double Sim::GetPreyDistanceTraveled() {
+    return prey->GetDistanceTraveled();
+}
+
 void Sim::Update() {
     if (!Caught(range)) {
         // Does the sequence of these events matter? (Probably.) May have to store data 

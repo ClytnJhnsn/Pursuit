@@ -30,6 +30,8 @@ public:
     PursuitStrategy* GetPursuitStrat();
     void SetPursuitStrat(PursuitStrategy* newStrat);
 
+    double GetDistanceTraveled();
+
     void Update(double dt); 
 
     void Print();
@@ -38,11 +40,11 @@ private:
     std::vector<double> pos; 
     std::vector<double> dir;
     double speed;
+    double distance_traveled;
+
     PursuitStrategy* pursuit_strat;
 
     Entity* prey;
-    std::vector<double> preyPos;
-
 };
 
 #endif

@@ -30,6 +30,8 @@ public:
     EvasionStrategy* GetEvasionStrat();
     void SetEvasionStrat(EvasionStrategy* evasion_strat);
 
+    double GetDistanceTraveled();
+
     void Update(double dt); 
 
     void Print();
@@ -40,11 +42,11 @@ private:
     std::vector<double> pos; 
     std::vector<double> dir;
     double speed;
+    double distance_traveled;
+
     EvasionStrategy* evasion_strat;
 
     Entity* predator;
-    std::vector<double> predPos;
-
 };
 
 #endif

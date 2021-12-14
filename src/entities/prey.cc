@@ -16,6 +16,7 @@ Prey::Prey() {
     }
     RandomizeDir();
     speed = 0;
+    distance_traveled = 0;
 
     EvasionStrategy* pure = new PureEvasion;
     SetEvasionStrat(pure);
@@ -83,6 +84,12 @@ void Prey::Update(double dt) {
     for (int i = 0; i < 2; i++) {
         pos[i] += speed*dir[i]*dt;
     }
+
+    distance_traveled += speed*dt; 
+}
+
+double Prey::GetDistanceTraveled() {
+    return distance_traveled;
 }
 
 void Prey::Print() {

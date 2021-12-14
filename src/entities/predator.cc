@@ -15,6 +15,7 @@ Predator::Predator() {
     std::vector<double> newDir = {0.0, 1.0};
     SetDir(newDir);
     speed = 0;
+    distance_traveled = 0;
 
     PursuitStrategy* pure = new PurePursuit();
     SetPursuitStrat(pure);
@@ -75,12 +76,18 @@ void Predator::SetPursuitStrat(PursuitStrategy* newStrat) {
     pursuit_strat = newStrat;
 }
 
+double Predator::GetDistanceTraveled() {
+    return distance_traveled;
+}
+
 void Predator::Update(double dt) {
     pursuit_strat->Apply(this);
 
     for (int i = 0; i < 2; i++) {
         pos[i] += speed*dir[i]*dt;;
     }
+
+    distance_traveled += speed*dt; 
 }
 
 void Predator::Print() {

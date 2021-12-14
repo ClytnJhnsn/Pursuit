@@ -25,6 +25,9 @@ public:
 
     void Update();
 
+    double GetPredDistanceTraveled();
+    double GetPreyDistanceTraveled();
+
     void Print();
 
     std::vector<double> RandomPos();

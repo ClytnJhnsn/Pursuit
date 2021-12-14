@@ -21,6 +21,8 @@ public:
     virtual double GetSpeed() = 0;
     virtual void SetSpeed(double newSpeed) = 0;
 
+    double GetDistanceTraveled();
+
     virtual void Update(double dt) = 0; 
 
     virtual void Print() = 0;
