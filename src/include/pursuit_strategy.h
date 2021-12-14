@@ -6,6 +6,8 @@
 class PursuitStrategy {
 public:
     virtual void Apply(Entity* predator) = 0;
+
+    virtual int GetStratID() = 0;
 };
 
 #endif

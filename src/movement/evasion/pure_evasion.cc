@@ -15,3 +15,7 @@ void PureEvasion::Apply(Entity* prey) {
 
     prey->SetDir(newDir);
 }
+
+int PureEvasion::GetStratID() {
+    return 0;
+}

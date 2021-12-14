@@ -1,10 +1,9 @@
 #ifndef SIM_H_
 #define SIM_H_
 
-// #include "include/predator.h"
-// #include "include/prey.h"
 #include <vector>
 #include "include/evasion_strategy.h"
+#include "include/pursuit_strategy.h"
 
 
 class Predator;
@@ -33,6 +32,7 @@ public:
     std::vector<double> RandomPos();
 
     void SetEvasionStrat(EvasionStrategy* evasion_strat);
+    void SetPursuitStrat(PursuitStrategy* pursuit_strategy);
 
 private:
     double time;

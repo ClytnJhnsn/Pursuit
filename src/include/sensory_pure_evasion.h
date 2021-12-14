@@ -7,9 +7,10 @@
 class SensoryPureEvasion : public EvasionStrategy {
 public:
     SensoryPureEvasion() {};
-    // ~PureEvasion();
 
     void Apply(Entity* prey);
+
+    int GetStratID();
 
     double GetDist(std::vector<double> preyPos, std::vector<double> predPos);
 };

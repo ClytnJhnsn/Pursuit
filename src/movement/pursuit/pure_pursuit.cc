@@ -7,10 +7,6 @@
 PurePursuit::PurePursuit() {
 }
 
-void PurePursuit::SanityCheck() {
-    std::cout << "you're fucking crazy" << std::endl;
-}
-
 void PurePursuit::Apply(Entity* predator) {
     // Set direction vector in direction of prey
     std::vector<double> predPos = predator->GetPos();
@@ -22,4 +18,8 @@ void PurePursuit::Apply(Entity* predator) {
     }
 
     predator->SetDir(newDir);
+}
+
+int PurePursuit::GetStratID() {
+    return 0;
 }

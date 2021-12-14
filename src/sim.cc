@@ -100,3 +100,7 @@ void Sim::SetEvasionStrat(EvasionStrategy* evasion_strat) {
     prey->SetEvasionStrat(evasion_strat);
 }
 
+void Sim::SetPursuitStrat(PursuitStrategy* pursuit_strategy) {
+    predator->SetPursuitStrat(pursuit_strategy);
+}
+
