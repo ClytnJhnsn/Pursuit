@@ -9,7 +9,7 @@
 #include <sys/stat.h>
 #include <iostream>
 #include <fstream>
-#define NUM_RUNS 15
+#define NUM_RUNS 5
 #define CATCH_THRESHOLD 2.0
 #define PRED_ID 1
 #define PREY_ID 0
@@ -45,8 +45,8 @@ int main() {
 
     /** Run with pure_pursuit and pure_evasion **/
     PurePursuit* pure_pursuit = new PurePursuit();
-    PureEvasion* pure_evasion = new PureEvasion();
-    runSimulation(pathsFile, runsFile, pure_pursuit, pure_evasion, unique_sim_number);
+    // PureEvasion* pure_evasion = new PureEvasion();
+    // runSimulation(pathsFile, runsFile, pure_pursuit, pure_evasion, unique_sim_number);
 
 
     /** Run with pure_pursuit and sensory_pure_evasion **/

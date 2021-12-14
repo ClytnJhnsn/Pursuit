@@ -81,8 +81,8 @@ void Sim::Print() {
 
 std::vector<double> Sim::RandomPos() {
     std::vector<double> vec;
-    double lower_bound = -1000;
-    double upper_bound = 1000;
+    double lower_bound = -500;
+    double upper_bound = 500;
 
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::uniform_real_distribution<double> unif(lower_bound,upper_bound);

@@ -2,7 +2,7 @@
 #include "../../include/entity.h"
 #include <vector>
 #include <cmath>
-#define SENSORY_RANGE 50
+#define SENSORY_RANGE 100
 
 void SensoryPureEvasion::Apply(Entity* prey) {
     // Set direction vector in direction of prey
