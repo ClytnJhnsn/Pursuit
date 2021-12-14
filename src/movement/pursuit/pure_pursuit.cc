@@ -7,7 +7,7 @@
 PurePursuit::PurePursuit() {
 }
 
-void PurePursuit::Apply(Entity* predator) {
+void PurePursuit::Apply(Entity* predator, double dt) {
     // Set direction vector in direction of prey
     std::vector<double> predPos = predator->GetPos();
     std::vector<double> preyPos = predator->GetOtherPos();

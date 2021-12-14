@@ -81,7 +81,7 @@ double Predator::GetDistanceTraveled() {
 }
 
 void Predator::Update(double dt) {
-    pursuit_strat->Apply(this);
+    pursuit_strat->Apply(this, dt);
 
     for (int i = 0; i < 2; i++) {
         pos[i] += speed*dir[i]*dt;;

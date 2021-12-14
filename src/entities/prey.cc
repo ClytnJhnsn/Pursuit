@@ -79,7 +79,7 @@ void Prey::SetEvasionStrat(EvasionStrategy* newStrat) {
 }
 
 void Prey::Update(double dt) {
-    evasion_strat->Apply(this);
+    evasion_strat->Apply(this, dt);
 
     for (int i = 0; i < 2; i++) {
         pos[i] += speed*dir[i]*dt;

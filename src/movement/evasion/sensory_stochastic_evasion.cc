@@ -14,7 +14,7 @@ SensoryStochasticEvasion::SensoryStochasticEvasion() {
     isWithinEvasionRangeFlag = 0;
 }
 
-void SensoryStochasticEvasion::Apply(Entity* prey) {
+void SensoryStochasticEvasion::Apply(Entity* prey, double dt) {
     // Set direction vector in direction of prey
     std::vector<double> preyPos = prey->GetPos();
     std::vector<double> predPos = prey->GetOtherPos();

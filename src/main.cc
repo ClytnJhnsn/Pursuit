@@ -50,13 +50,16 @@ int main() {
 
 
     /** Run with pure_pursuit and sensory_pure_evasion **/
-    SensoryPureEvasion* sensory_pure_evasion = new SensoryPureEvasion();
-    runSimulation(pathsFile, runsFile, pure_pursuit, sensory_pure_evasion, unique_sim_number);
+    // SensoryPureEvasion* sensory_pure_evasion = new SensoryPureEvasion();
+    // runSimulation(pathsFile, runsFile, pure_pursuit, sensory_pure_evasion, unique_sim_number);
 
 
     /** Run with pure_pursuit and sensory_stochastic_evasion **/
     SensoryStochasticEvasion* sensory_stochastic_evasion = new SensoryStochasticEvasion();
     runSimulation(pathsFile, runsFile, pure_pursuit, sensory_stochastic_evasion, unique_sim_number);
+
+    ParallelNavigation* parallel_naviation = new ParallelNavigation();
+    runSimulation(pathsFile, runsFile, parallel_naviation, sensory_stochastic_evasion, unique_sim_number);
     
 }
 

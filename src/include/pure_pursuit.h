@@ -8,7 +8,7 @@ class PurePursuit : public PursuitStrategy {
 public:
     PurePursuit();
 
-    void Apply(Entity* predator);
+    void Apply(Entity* predator, double dt);
 
     int GetStratID();
 };

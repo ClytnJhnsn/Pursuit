@@ -4,7 +4,7 @@
 #include <cmath>
 #define SENSORY_RANGE 100
 
-void SensoryPureEvasion::Apply(Entity* prey) {
+void SensoryPureEvasion::Apply(Entity* prey, double dt) {
     // Set direction vector in direction of prey
     std::vector<double> preyPos = prey->GetPos();
     std::vector<double> predPos = prey->GetOtherPos();

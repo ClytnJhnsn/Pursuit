@@ -8,7 +8,7 @@ class PureEvasion : public EvasionStrategy {
 public:
     PureEvasion() {};
 
-    void Apply(Entity* prey);
+    void Apply(Entity* prey, double dt);
 
     int GetStratID();
 };

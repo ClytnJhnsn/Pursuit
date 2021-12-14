@@ -8,7 +8,7 @@ class SensoryStochasticEvasion : public EvasionStrategy {
 public:
     SensoryStochasticEvasion();
 
-    void Apply(Entity* prey);
+    void Apply(Entity* prey, double dt);
 
     int GetStratID();
 

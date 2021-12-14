@@ -3,7 +3,7 @@
 #include <vector>
 #include <cmath>
 
-void PureEvasion::Apply(Entity* prey) {
+void PureEvasion::Apply(Entity* prey, double dt) {
     // Set direction vector in direction of prey
     std::vector<double> preyPos = prey->GetPos();
     std::vector<double> predPos = prey->GetOtherPos();

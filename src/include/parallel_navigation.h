@@ -8,9 +8,13 @@ class ParallelNavigation : public PursuitStrategy {
 public:
     ParallelNavigation();
 
-    void Apply(Entity* predator);
+    void Apply(Entity* predator, double dt);
 
     int GetStratID();
+
+    std::vector<double> PredictPreyPos(Entity* prey, double dt);
+    
+    double GetDist(std::vector<double> preyPos, std::vector<double> predPos);
 };
 
 #endif
