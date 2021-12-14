@@ -8,6 +8,8 @@ public:
     // virtual ~EvasionStrategy();
 
     virtual void Apply(Entity* prey) = 0;
+
+    virtual int GetStratID() = 0;
 };
 
 #endif

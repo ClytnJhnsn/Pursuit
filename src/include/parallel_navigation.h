@@ -9,6 +9,8 @@ public:
     ParallelNavigation();
 
     void Apply(Entity* predator);
+
+    int GetStratID();
 };
 
 #endif

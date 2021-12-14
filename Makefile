@@ -28,5 +28,5 @@ $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 	
 clean:
-	rm -rf build
+	rm -rf build output
 

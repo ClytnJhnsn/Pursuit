@@ -15,3 +15,7 @@ void ParallelNavigation::Apply(Entity* predator) {
 
     predator->SetDir(newDir);
 }
+
+int ParallelNavigation::GetStratID() {
+    return 1;
+}

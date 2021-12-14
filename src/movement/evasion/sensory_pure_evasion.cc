@@ -27,3 +27,7 @@ double SensoryPureEvasion::GetDist(std::vector<double> preyPos, std::vector<doub
 
     return sqrt(diff[0]*diff[0] + diff[1]*diff[1]); 
 }
+
+int SensoryPureEvasion::GetStratID() {
+    return 1;
+}
