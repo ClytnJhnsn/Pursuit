@@ -4,7 +4,9 @@
 #include "include/pure_evasion.h"
 #include "include/sensory_pure_evasion.h"
 #include "include/sensory_stochastic_evasion.h"
-#include "include/parallel_navigation.h"
+#include "include/proportional_navigation.h"
+#include "include/deviated_pursuit.h"
+#include "include/optimal_bearing.h"
 #include "include/prey.h"
 #include <sys/stat.h>
 #include <iostream>
