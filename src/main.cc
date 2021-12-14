@@ -11,6 +11,8 @@
 #include <fstream>
 #define NUM_RUNS 15
 #define CATCH_THRESHOLD 2.0
+#define PRED_ID 1
+#define PREY_ID 0
 
 void writeRunDataToFile(std::ofstream&, int, int, int, int, double, double, double);
 
@@ -120,12 +122,24 @@ void writePathsToFile(
     std::vector<double> pred_pos,
     std::vector<double> prey_pos
 ) {
-    file << sim_number << "," << evasion_strat << "," 
-        << evasion_strat << "," << iteration << ",";
+
+    
+    file << sim_number << "," << PRED_ID << "," << pursuit_strat << "," << iteration << ",";
 
     for (int i = 0; i < pred_pos.size(); i++) {
-        file << pred_pos[i] << ",";
+        if (i == pred_pos.size()-1) {
+           file << pred_pos[i] << std::endl;
+        } else {
+            file << pred_pos[i] << ",";
+        }
     }
+
+
+
+
+
+
+    file << sim_number << "," << PREY_ID << "," << evasion_strat << "," << iteration << ",";
 
     for (int i = 0; i < prey_pos.size(); i++) {
         if (i == prey_pos.size()-1) {
