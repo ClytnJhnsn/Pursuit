@@ -58,16 +58,16 @@ int main() {
 
     /** Run with pure_pursuit and sensory_pure_evasion **/
     SensoryPureEvasion* sensory_pure_evasion = new SensoryPureEvasion();
-    runSimulation(pathsFile, runsFile, pure_pursuit, sensory_pure_evasion, unique_sim_number);
+    // runSimulation(pathsFile, runsFile, pure_pursuit, sensory_pure_evasion, unique_sim_number);
 
 
     /** Run with pure_pursuit and sensory_stochastic_evasion **/
     SensoryStochasticEvasion* sensory_stochastic_evasion = new SensoryStochasticEvasion();
-    runSimulation(pathsFile, runsFile, pure_pursuit, sensory_stochastic_evasion, unique_sim_number);
+    // runSimulation(pathsFile, runsFile, pure_pursuit, sensory_stochastic_evasion, unique_sim_number);
 
-    runSimulation(pathsFile, runsFile, deviated_pursuit, sensory_stochastic_evasion, unique_sim_number);
+    // runSimulation(pathsFile, runsFile, deviated_pursuit, sensory_stochastic_evasion, unique_sim_number);
     runSimulation(pathsFile, runsFile, optimal_bearing, sensory_stochastic_evasion, unique_sim_number);
-    runSimulation(pathsFile, runsFile, proportional_navigation, sensory_stochastic_evasion, unique_sim_number);
+    // runSimulation(pathsFile, runsFile, proportional_navigation, sensory_stochastic_evasion, unique_sim_number);
 }
 
 
@@ -94,6 +94,7 @@ void runSimulation(
 
         while(!sim->Caught(CATCH_THRESHOLD)) {
             num_iters[i] += 1;
+
             sim->Update();
 
             writePathsToFile(pathsFile, sim_number, pursuit_strategy->GetStratID(),
