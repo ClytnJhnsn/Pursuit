@@ -13,6 +13,8 @@ public:
 
     double GetAngle(std::vector<double> a, std::vector<double> b);
 
+    std::vector<double> Rotate(std::vector<double> vec, double a);
+
     void Apply(Entity* predator);
 
     int GetStratID();

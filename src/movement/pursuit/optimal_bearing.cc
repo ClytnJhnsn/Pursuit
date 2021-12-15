@@ -20,25 +20,33 @@ double OptimalBearing::GetAngle(std::vector<double> a, std::vector<double> b) {
     return crossSign * acos(dotProd / (aNorm * bNorm));
 }
 
+std::vector<double> OptimalBearing::Rotate(std::vector<double> vec, double a) {
+    std::vector<double> newVec = {vec[0]*cos(a) - vec[1]*sin(a), vec[0]*sin(a) + vec[1]*cos(a)};
+    return newVec;
+}
+
 void OptimalBearing::Apply(Entity* predator) {
     // This chunk was gonna be in the constructor but that fucked things up
-    std::vector<double> predPos = predator->GetPos();
-    std::vector<double> preyPos = predator->GetOtherPos();
-    std::vector<double> baselineVec = {0.0, 0.0};
+    std::vector<double> predPos, preyPos, base, preyDir, newDir;
+    predPos = predator->GetPos();
+    preyPos = predator->GetOtherPos();
+    base = {0.0, 0.0};
     for (int i = 0; i < 2; i++) {
-        baselineVec[i] = preyPos[i] - predPos[i];
+        base[i] = preyPos[i] - predPos[i];
     }
     
-    std::vector<double> preyDir = predator->GetOther()->GetDir();
-    double predSpeed = predator->GetSpeed();
-    double preySpeed = predator->GetOther()->GetSpeed();
-    double b = GetAngle(preyDir, baselineVec);
-    double util = (preySpeed * sin(b))/predSpeed;
+    double predSpeed, preySpeed, b, util, a;
+    preyDir = predator->GetOther()->GetDir();
+    predSpeed = predator->GetSpeed();
+    preySpeed = predator->GetOther()->GetSpeed();
+
+    b = GetAngle(base, preyDir);
+    util = (preySpeed / predSpeed) * sin(b);
     if (util > 1) { util = 1.0; }
-    double a = asin(util);
-    DeviatedPursuit* dev = new DeviatedPursuit(a);
-    
-    dev->Apply(predator);
+    a = asin(util);
+
+    newDir = Rotate(base, a);
+    predator->SetDir(newDir);
 }
 
 int OptimalBearing::GetStratID() {

@@ -32,7 +32,9 @@ void createOutputDir();
  *
  * FLAGS FOR PURSUIT STRATEGIES
  * - 0 : pure_pursuit
- * - 1 : parallel_naviation
+ * - 1 : deviated_pursuit
+ * - 2 : optimal_bearing
+ * - 3 : proportional_navigation
  */
 
 int main() {
@@ -47,6 +49,9 @@ int main() {
 
     /** Run with pure_pursuit and pure_evasion **/
     PurePursuit* pure_pursuit = new PurePursuit();
+    DeviatedPursuit* deviated_pursuit = new DeviatedPursuit(3.14/6);
+    OptimalBearing* optimal_bearing = new OptimalBearing();
+    ProportionalNavigation* proportional_navigation = new ProportionalNavigation(4.0);
     // PureEvasion* pure_evasion = new PureEvasion();
     // runSimulation(pathsFile, runsFile, pure_pursuit, pure_evasion, unique_sim_number);
 
@@ -59,7 +64,10 @@ int main() {
     /** Run with pure_pursuit and sensory_stochastic_evasion **/
     SensoryStochasticEvasion* sensory_stochastic_evasion = new SensoryStochasticEvasion();
     runSimulation(pathsFile, runsFile, pure_pursuit, sensory_stochastic_evasion, unique_sim_number);
-    
+
+    runSimulation(pathsFile, runsFile, deviated_pursuit, sensory_stochastic_evasion, unique_sim_number);
+    runSimulation(pathsFile, runsFile, optimal_bearing, sensory_stochastic_evasion, unique_sim_number);
+    runSimulation(pathsFile, runsFile, proportional_navigation, sensory_stochastic_evasion, unique_sim_number);
 }
 
 

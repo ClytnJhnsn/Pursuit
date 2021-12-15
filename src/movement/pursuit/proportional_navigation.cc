@@ -20,9 +20,9 @@ double ProportionalNavigation::GetAngle(std::vector<double> a, std::vector<doubl
     dotProd = a[0]*b[0] + a[1]*b[1];
     aNorm = sqrt(a[0]*a[0] + a[1]*a[1]);
     bNorm = sqrt(b[0]*b[0] + b[1]*b[1]);
-    int crossSign = 1;
-    if (a[0]*b[1] - a[1]*b[0] < 0) { crossSign = -1; }
-    return acos(dotProd / (aNorm * bNorm));
+    int sign = 1;
+    if (a[0]*b[1] - a[1]*b[0] < 0) { sign = -1; }
+    return sign * acos(dotProd / (aNorm * bNorm));
 }
 
 void ProportionalNavigation::Apply(Entity* predator) {
